@@ -31,11 +31,6 @@ with textfileopen('fastcluster.py') as f:
             version = '.'.join(line.split("'")[1:-1:2])
             break
 
-print('Version: ' + version)
-print(here)
-print(os.path.join(here, '../fastcluster_python.cpp'))
-
-
 def get_include_dirs():
     def is_special_command():
         special_list = ('--help-commands',
@@ -93,7 +88,7 @@ Clustering Routines for R and Python*, Journal of Statistical Software, **53**
       setup_requires=['numpy'],
       provides=['fastcluster'],
       ext_modules=[Extension('_fastcluster',
-                             ["../fastcluster_python.cpp"],
+                             ["fastcluster_python.cpp"],
                              extra_compile_args=['/EHsc'] if os.name=='nt' else [],
                              include_dirs=get_include_dirs(),
 # Feel free to uncomment the line below if you use the GCC.
